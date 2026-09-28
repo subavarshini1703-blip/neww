@@ -1,0 +1,35 @@
+<!-- ================= ASSETS ================= -->
+
+<!-- Profile Image -->
+<img
+    src="assets/images/profile.jpg"
+    alt="Subavarshini L"
+    class="profile-image"
+>
+
+
+<!-- Server Analysis Project Image -->
+<img
+    src="assets/images/project-server-analysis.png"
+    alt="Server Performance Analysis Project"
+    class="project-image"
+>
+
+
+<!-- Portfolio Project Image -->
+<img
+    src="assets/images/project-portfolio.png"
+    alt="Personal Portfolio Website"
+    class="project-image"
+>
+
+
+<!-- Resume -->
+<a
+    href="assets/resume/Subavarshini_Resume.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="resume-button"
+>
+    View My Resume
+</a>
