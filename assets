@@ -7,14 +7,12 @@
     class="profile-image"
 >
 
-
 <!-- Server Analysis Project Image -->
 <img
     src="assets/images/project-server-analysis.png"
     alt="Server Performance Analysis Project"
     class="project-image"
 >
-
 
 <!-- Portfolio Project Image -->
 <img
@@ -23,6 +21,19 @@
     class="project-image"
 >
 
+<!-- Skills Image -->
+<img
+    src="assets/images/skills-banner.png"
+    alt="Tools I Work With"
+    class="skills-image"
+>
+
+<!-- Contact Image -->
+<img
+    src="assets/images/contact-banner.png"
+    alt="Contact Me"
+    class="contact-image"
+>
 
 <!-- Resume -->
 <a
