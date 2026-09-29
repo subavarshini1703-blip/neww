@@ -1,0 +1,46 @@
+<!-- ================= ASSETS ================= -->
+
+<!-- Profile Image -->
+<img
+    src="assets/images/img1.png"
+    alt="Subavarshini L"
+    class="profile-image"
+>
+
+<!-- Server Analysis Project Image -->
+<img
+    src="assets/images/img2.avif
+    alt="Server Performance Analysis Project"
+    class="project-image"
+>
+
+<!-- Portfolio Project Image -->
+<img
+    src="assets/img3.png"
+    alt="Personal Portfolio Website"
+    class="project-image"
+>
+
+<!-- Skills Image -->
+<img
+    src="assets/images/img3.png"
+    alt="Tools I Work With"
+    class="skills-image"
+>
+
+<!-- Contact Image -->
+<img
+    src="assets/images/img4.png"
+    alt="Contact Me"
+    class="contact-image"
+>
+
+<!-- Resume -->
+<a
+    href="assets/resume/Subavarshini_Resume.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="resume-button"
+>
+    View My Resume
+</a>

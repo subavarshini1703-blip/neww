@@ -1,312 +1,227 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        code, pre { font-family: 'Fira Code', monospace; }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+
+        /* Dark Background Style for About Code Card */
+        .glass-card-dark-code {
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.3);
+        }
+
+        /* VS Code Dark / JetBrains Dark Style for Projects Program Cards */
+        .vscode-dark-card {
+            background: rgba(30, 30, 30, 0.92);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Unique Pastel Soft Rose Glass Card for Project Cards */
+        .pastel-rose-card {
+            background: rgba(254, 242, 242, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(254, 202, 202, 0.8);
+            box-shadow: 0 8px 24px rgba(225, 29, 72, 0.06);
+        }
+
+        /* Unique Pastel Mint Glass Card for Project Cards */
+        .pastel-mint-card {
+            background: rgba(240, 253, 244, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(187, 247, 208, 0.8);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.06);
+        }
+
+        /* Unique Pastel Peach Glass Card for Project Cards */
+        .pastel-peach-card {
+            background: rgba(255, 247, 237, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(254, 215, 170, 0.8);
+            box-shadow: 0 8px 24px rgba(249, 115, 22, 0.06);
+        }
+
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px -8px rgba(99, 102, 241, 0.15);
+        }
+
+        .bg-pastel-mesh {
+            background-color: #fffaf3;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(255, 224, 189, 0.58) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(250, 218, 226, 0.58) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(226, 240, 218, 0.62) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(239, 222, 239, 0.58) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(255, 247, 228, 0.72) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+/* ===== ADDED ANIMATIONS — ORIGINAL CONTENT UNCHANGED ===== */
+@keyframes sectionReveal {from{opacity:0;transform:translateY(45px)}to{opacity:1;transform:translateY(0)}}
+@keyframes imageReveal {from{opacity:0;transform:translateX(-45px) scale(.94)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes rightReveal {from{opacity:0;transform:translateX(45px)}to{opacity:1;transform:translateX(0)}}
+@keyframes cardPop {from{opacity:0;transform:translateY(30px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes floatSoft {0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes iconSpin {0%{transform:rotate(0) scale(1)}50%{transform:rotate(12deg) scale(1.12)}100%{transform:rotate(0) scale(1)}}
+@keyframes shine {0%{left:-120%}100%{left:130%}}
+
+section{animation:sectionReveal .9s ease both}
+section:nth-of-type(1){animation-delay:.05s}
+section:nth-of-type(2){animation-delay:.15s}
+section:nth-of-type(3){animation-delay:.25s}
+section:nth-of-type(4){animation-delay:.35s}
+section:nth-of-type(5){animation-delay:.45s}
+
+/* About */
+#about img{animation:imageReveal .9s ease .15s both,floatSoft 5s ease-in-out 1.1s infinite}
+#about .glass-card-dark-code{animation:rightReveal .8s ease .3s both}
+#about .grid.grid-cols-3 > div{animation:cardPop .7s ease both}
+#about .grid.grid-cols-3 > div:nth-child(1){animation-delay:.4s}
+#about .grid.grid-cols-3 > div:nth-child(2){animation-delay:.52s}
+#about .grid.grid-cols-3 > div:nth-child(3){animation-delay:.64s}
+
+/* Workflow */
+#workflow .grid > div{animation:cardPop .75s ease both;transition:transform .4s ease,box-shadow .4s ease}
+#workflow .grid > div:nth-child(1){animation-delay:.1s}
+#workflow .grid > div:nth-child(2){animation-delay:.22s}
+#workflow .grid > div:nth-child(3){animation-delay:.34s}
+#workflow .grid > div:nth-child(4){animation-delay:.46s}
+#workflow .grid > div:hover{transform:translateY(-10px) rotate(-1deg);box-shadow:0 20px 38px rgba(79,70,229,.14)}
+#workflow .grid > div:hover i{animation:iconSpin .6s ease}
+
+/* Education */
+#education img{animation:imageReveal .9s ease .15s both,floatSoft 5s ease-in-out 1s infinite}
+#education .education-card{animation:rightReveal .75s ease both;transition:transform .4s ease,box-shadow .4s ease}
+#education .education-card:nth-child(1){animation-delay:.15s}
+#education .education-card:nth-child(2){animation-delay:.3s}
+#education .education-card:nth-child(3){animation-delay:.45s}
+#education .education-card:hover{transform:translateX(8px) scale(1.02);box-shadow:0 18px 35px rgba(79,70,229,.12)}
+#education .education-card:hover i{animation:iconSpin .6s ease}
+
+/* Projects */
+#projects .pastel-rose-card,#projects .pastel-mint-card,#projects .pastel-peach-card{animation:cardPop .8s ease both;transition:transform .45s ease,box-shadow .45s ease;position:relative;overflow:hidden}
+#projects .pastel-rose-card{animation-delay:.1s}
+#projects .pastel-mint-card{animation-delay:.25s}
+#projects .pastel-peach-card{animation-delay:.4s}
+#projects .pastel-rose-card:hover,#projects .pastel-mint-card:hover,#projects .pastel-peach-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 22px 42px rgba(80,70,120,.14)}
+#projects .vscode-dark-card{animation:sectionReveal .9s ease .5s both}
+#projects .vscode-dark-card:before{content:"";position:absolute;top:0;bottom:0;width:25%;left:-120%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);transform:skewX(-18deg);pointer-events:none}
+#projects .vscode-dark-card:hover:before{animation:shine 1.2s ease}
+
+/* Skills */
+#skills img{animation:sectionReveal .9s ease .1s both}
+#skills .grid > div{animation:cardPop .75s ease both;transition:transform .4s ease,box-shadow .4s ease}
+#skills .grid > div:nth-child(1){animation-delay:.12s}
+#skills .grid > div:nth-child(2){animation-delay:.24s}
+#skills .grid > div:nth-child(3){animation-delay:.36s}
+#skills .grid > div:nth-child(4){animation-delay:.48s}
+#skills .grid > div:hover{transform:translateY(-10px) rotate(-1deg);box-shadow:0 20px 40px rgba(79,70,229,.13)}
+#skills .grid > div:hover i{animation:iconSpin .7s ease}
+#skills .grid > div .p-2\.5{transition:transform .3s ease}
+#skills .grid > div .p-2\.5:hover{transform:translateX(5px)}
+
+/* Contact */
+#contact img{animation:sectionReveal .9s ease .1s both}
+
+/* Responsive animation adjustments */
+@media (max-width:767px){
+ section{animation-duration:.7s}
+ #about img,#education img{animation-name:imageReveal,floatSoft;animation-duration:.75s,5s}
+ #workflow .grid > div:hover,#education .education-card:hover,#skills .grid > div:hover,#contact .grid > div:hover,#projects .pastel-rose-card:hover,#projects .pastel-mint-card:hover,#projects .pastel-peach-card:hover{transform:translateY(-6px) scale(1.01)}
+ #contact .grid > div:hover{transform:translateY(-6px)}
+}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+body{background:#fffaf3!important;}
+.glass-card,.glass{box-shadow:0 6px 18px rgba(63,72,65,.08)!important;border-radius:18px!important;}
+.glass-card:hover,.glass:hover{transform:translateY(-2px)!important;box-shadow:0 9px 22px rgba(63,72,65,.11)!important;}
+.hero-accent{opacity:.7;}
+@media(min-width:768px){.project-card:nth-child(2){transform:rotate(.15deg)}.project-card:nth-child(3){transform:rotate(-.15deg)}}
+
+#contact { position: relative; z-index: 2; min-height: 0; }
+#contact > div { min-height: 0; }
+#contact img { opacity: 1 !important; visibility: visible !important; transform: none !important; animation: none !important; }
+@media (max-width: 767px) {
+  #contact { padding-left: .75rem; padding-right: .75rem; padding-top: 4.5rem; padding-bottom: 3rem; }
+  #contact > div { border-radius: 20px; }
 }
 
-html {
-    scroll-behavior: smooth;
+/* Pastel sub-card accents for Education + Skills */
+#education .grid.grid-cols-1.md\:grid-cols-3 > .glass-card {
+  border: 1px solid rgba(255,255,255,.9) !important;
+  box-shadow: 0 10px 24px rgba(80,70,100,.08) !important;
+}
+#education .grid.grid-cols-1.md\:grid-cols-3 > .glass-card:nth-child(1) {
+  background: linear-gradient(135deg, #fff1f2 0%, #fce7f3 100%) !important;
+}
+#education .grid.grid-cols-1.md\:grid-cols-3 > .glass-card:nth-child(2) {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+}
+#education .grid.grid-cols-1.md\:grid-cols-3 > .glass-card:nth-child(3) {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%) !important;
+}
+#education .grid.grid-cols-1.md\:grid-cols-3 > .glass-card:hover {
+  filter: saturate(1.04);
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f8f7f4;
-    color: #222;
-    line-height: 1.6;
+/* Small skill sub-cards */
+#skills .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > .glass-card .space-y-2 > div {
+  border-width: 1px !important;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+#skills .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > .glass-card:nth-child(1) .space-y-2 > div:nth-child(1) {
+  background: #fff1f2 !important; border-color: #fecdd3 !important;
+}
+#skills .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > .glass-card:nth-child(1) .space-y-2 > div:nth-child(2) {
+  background: #fef3c7 !important; border-color: #fde68a !important;
+}
+#skills .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > .glass-card:nth-child(2) .space-y-2 > div:nth-child(1) {
+  background: #ecfdf5 !important; border-color: #a7f3d0 !important;
+}
+#skills .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > .glass-card:nth-child(2) .space-y-2 > div:nth-child(2) {
+  background: #eff6ff !important; border-color: #bfdbfe !important;
+}
+#skills .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > .glass-card:nth-child(3) .space-y-2 > div:nth-child(1) {
+  background: #f5f3ff !important; border-color: #ddd6fe !important;
+}
+#skills .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > .glass-card:nth-child(3) .space-y-2 > div:nth-child(2) {
+  background: #fdf2f8 !important; border-color: #fbcfe8 !important;
+}
+#skills .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > .glass-card:nth-child(4) .space-y-2 > div:nth-child(1) {
+  background: #f0fdfa !important; border-color: #99f6e4 !important;
+}
+#skills .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > .glass-card:nth-child(4) .space-y-2 > div:nth-child(2) {
+  background: #fff7ed !important; border-color: #fed7aa !important;
+}
+#skills .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > .glass-card .space-y-2 > div:hover {
+  transform: translateX(4px);
+  box-shadow: 0 6px 14px rgba(80,70,100,.08);
 }
 
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(248, 247, 244, 0.92);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
-    border-bottom: 1px solid #e5e5e5;
+/* Hero image blue/purple lettering has been recolored; layout and animations unchanged. */
+
+/* Brown accent requested for the previously blue/purple highlighted text and buttons */
+.brown-accent,
+.text-\[\#A64B2A\] {
+    color: #A64B2A !important;
 }
-
-nav {
-    max-width: 1150px;
-    margin: auto;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #222;
-    font-size: 15px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    opacity: 0.5;
-}
-
-.hero {
-    min-height: 100vh;
-    max-width: 1150px;
-    margin: auto;
-    padding: 140px 20px 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-}
-
-.hero-text {
-    max-width: 650px;
-}
-
-.small-title,
-.section-label {
-    font-size: 13px;
-    letter-spacing: 3px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.hero h1 {
-    font-size: clamp(50px, 8vw, 90px);
-    line-height: 1;
-    margin-bottom: 20px;
-}
-
-.hero h2 {
-    font-size: 24px;
-    font-weight: normal;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    max-width: 580px;
-    color: #666;
-}
-
-.hero-image img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 8px solid white;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.12);
-}
-
-.buttons {
-    margin-top: 30px;
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-    padding: 13px 24px;
-    background: #222;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    opacity: 0.8;
-}
-
-.btn.secondary {
-    background: transparent;
-    color: #222;
-    border: 1px solid #222;
-}
-
-.section {
-    max-width: 1000px;
-    margin: auto;
-    padding: 100px 20px;
-}
-
-.section h2 {
-    font-size: 42px;
-    margin-bottom: 25px;
-}
-
-.section > p {
-    max-width: 750px;
-    color: #666;
-}
-
-.skills-container {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.skill-card {
-    padding: 30px;
-    background: white;
-    border-radius: 20px;
-    border: 1px solid #e8e8e8;
-    transition: 0.3s;
-}
-
-.skill-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-}
-
-.skill-card h3 {
-    margin-bottom: 8px;
-}
-
-.skill-card p {
-    color: #777;
-}
-
-.projects-container {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.project-card {
-    overflow: hidden;
-    background: white;
-    border-radius: 20px;
-    border: 1px solid #e8e8e8;
-    transition: 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-}
-
-.project-card img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-}
-
-.project-content {
-    padding: 25px;
-}
-
-.project-content h3 {
-    margin-bottom: 12px;
-}
-
-.project-content p {
-    color: #666;
-    margin-bottom: 18px;
-}
-
-.project-content span {
-    display: inline-block;
-    padding: 5px 12px;
-    background: #f0f0f0;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-right: 5px;
-}
-
-.resume-section {
-    text-align: center;
-    padding: 100px 20px;
-    background: #eeeeeb;
-}
-
-.resume-section h2 {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-.resume-section p {
-    color: #666;
-    margin-bottom: 25px;
-}
-
-.contact-container {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.contact-container div {
-    padding: 25px;
-    background: white;
-    border-radius: 15px;
-}
-
-.contact-container h3 {
-    margin-bottom: 8px;
-}
-
-.contact-container a {
-    color: #555;
-    text-decoration: none;
-}
-
-.contact-container a:hover {
-    text-decoration: underline;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    border-top: 1px solid #ddd;
-    color: #777;
-}
-
-@media (max-width: 768px) {
-
-    nav ul {
-        display: none;
-    }
-
-    .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-
-    .hero-text {
-        margin: auto;
-    }
-
-    .buttons {
-        justify-content: center;
-    }
-
-    .skills-container {
-        grid-template-columns: 1fr;
-    }
-
-    .projects-container {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-image img {
-        width: 230px;
-        height: 230px;
-    }
+.bg-\[\#A64B2A\] {
+    background-color: #A64B2A !important;
 }
