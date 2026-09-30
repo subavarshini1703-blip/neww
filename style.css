@@ -85,3 +85,6 @@ body {
     width: 18%;
     height: 10%;
 }
+
+/* ===== External asset helpers ===== */
+.resume-button { text-decoration: none; }
