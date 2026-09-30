@@ -3,35 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Subavarshini L portfolio - Full Stack Developer and Data Analyst">
     <title>Subavarshini L | Portfolio</title>
-    <!-- Link to external CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="#home" class="logo">SL</a>
 
-    <!-- Interactive Background Section -->
-    <section class="interactive-bg-section">
-        <div class="bg-container">
-            <!-- Invisible or styled interactive hotspots positioned over the background image -->
-            
-            <!-- GitHub Hotspot -->
-            <a href="https://github.com/your-username" target="_blank" class="hotspot github-spot" title="GitHub ID">
-                <span class="sr-only">GitHub</span>
-            </a>
+            <button class="menu-button" id="menuButton" type="button" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
-            <!-- LinkedIn Hotspot -->
-            <a href="https://linkedin.com/in/your-profile" target="_blank" class="hotspot linkedin-spot" title="LinkedIn ID">
-                <span class="sr-only">LinkedIn</span>
-            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#workflow">Workflow</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <!-- Contact Number Hotspot -->
-            <a href="tel:+919876543210" class="hotspot contact-spot" title="Contact Number">
-                <span class="sr-only">Contact</span>
-            </a>
-        </div>
-    </section>
+    <main>
+        <section id="home" class="hero section-animate">
+            <div class="hero-text">
+                <p class="eyebrow">FULL STACK DEVELOPER</p>
+                <h1>Subavarshini L</h1>
+                <h2>Full Stack Developer & Data Analyst</h2>
+                <p class="hero-description">
+                    I build responsive web applications and turn ideas into real-world solutions.
+                    I enjoy coding, problem solving, data analysis, and continuous learning.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="button primary">View My Projects</a>
+                    <a href="#contact" class="button secondary">Contact Me</a>
+                </div>
+            </div>
 
+            <div class="hero-image">
+                <img src="ChatGPT Image Sep 22, 2026, 08_56_39 PM.png" alt="Portfolio illustration for Subavarshini L">
+            </div>
+        </section>
+
+        <section id="about" class="section about-section section-animate">
+            <div class="section-heading">
+                <p class="eyebrow">ABOUT ME</p>
+                <h2>About</h2>
+                <h3>Building with code, data, and creativity</h3>
+            </div>
+
+            <div class="about-grid">
+                <article class="card">
+                    <h4>Profile</h4>
+                    <p>
+                        I am a B.Sc Computer Science with Data Analytics student interested in
+                        full stack development and data-driven applications.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h4>Developer Mindset</h4>
+                    <p>
+                        I focus on clean code, practical problem solving, responsive interfaces,
+                        database concepts, and continuous improvement.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h4>Core Values</h4>
+                    <p>
+                        Clean Code, Creative Solutions, Continuous Learning, and a structured
+                        approach to development.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="workflow" class="section section-animate">
+            <div class="section-heading">
+                <p class="eyebrow">ENGINEERING MINDSET</p>
+                <h2>Workflow</h2>
+                <h3>How I build and solve problems</h3>
+            </div>
+
+            <div class="cards four-columns">
+                <article class="card workflow-card">
+                    <span class="step-number">01</span>
+                    <h4>Plan & Architect</h4>
+                    <p>Understand requirements, user flow, system structure, and database needs.</p>
+                </article>
+
+                <article class="card workflow-card">
+                    <span class="step-number">02</span>
+                    <h4>Clean Development</h4>
+                    <p>Write modular, readable, reusable, and maintainable code.</p>
+                </article>
+
+                <article class="card workflow-card">
+                    <span class="step-number">03</span>
+                    <h4>Data & Logic Integration</h4>
+                    <p>Connect interfaces with databases, APIs, and application logic.</p>
+                </article>
+
+                <article class="card workflow-card">
+                    <span class="step-number">04</span>
+                    <h4>Iterate & Improve</h4>
+                    <p>Test, refine, optimize, and improve the overall user experience.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="education" class="section section-animate">
+            <div class="section-heading">
+                <p class="eyebrow">ACADEMIC BACKGROUND</p>
+                <h2>Education</h2>
+                <h3>Education Journey</h3>
+            </div>
+
+            <div class="education-banner">
+                <img src="image_23894d.jpg" alt="College campus">
+                <div class="education-overlay">
+                    <h4>PSG College of Arts and Science</h4>
+                    <p>B.Sc Computer Science with Data Analytics</p>
+                    <span>2024 - 2027</span>
+                </div>
+            </div>
+
+            <div class="cards three-columns">
+                <article class="card education-card">
+                    <h4>B.Sc CS (Data Analytics)</h4>
+                    <h5>PSG College of Arts and Science</h5>
+                    <p>2024 - 2027</p>
+                </article>
+
+                <article class="card education-card">
+                    <h4>Higher Secondary School</h4>
+                    <h5>Vikas Vidhyalaya HSS</h5>
+                    <p>HSC - 80%</p>
+                </article>
+
+                <article class="card education-card">
+                    <h4>Secondary School</h4>
+                    <h5>Kannammal National School</h5>
+                    <p>SSLC - 90%</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="projects" class="section section-animate">
+            <div class="section-heading">
+                <p class="eyebrow">MY WORK</p>
+                <h2>Projects</h2>
+                <h3>Featured Projects</h3>
+            </div>
+
+            <div class="cards three-columns">
+                <article class="card project-card">
+                    <span class="project-label">Project 01</span>
+                    <h4>Data Analysis Project</h4>
+                    <p>
+                        Analyzed datasets and created visual representations using Python,
+                        Pandas, and Matplotlib.
+                    </p>
+                    <h5>Technologies</h5>
+                    <p class="tech-text">Python • Pandas • Matplotlib</p>
+                </article>
+
+                <article class="card project-card">
+                    <span class="project-label">Project 02</span>
+                    <h4>Portfolio Website</h4>
+                    <p>
+                        Designed a responsive portfolio website to present projects,
+                        skills, education, and contact details.
+                    </p>
+                    <h5>Technologies</h5>
+                    <p class="tech-text">HTML • CSS • JavaScript</p>
+                </article>
+
+                <article class="card project-card">
+                    <span class="project-label">Project 03</span>
+                    <h4>Student Management System</h4>
+                    <p>
+                        Created a system for organizing student information using
+                        programming and database concepts.
+                    </p>
+                    <h5>Technologies</h5>
+                    <p class="tech-text">Python • MongoDB • SQL</p>
+                </article>
+            </div>
+
+            <article class="code-card">
+                <div class="code-header">
+                    <h4>projects.py</h4>
+                    <span>Python</span>
+                </div>
+                <pre><code>def display_projects():
+    projects = [
+        "Data Analysis Project",
+        "Portfolio Website",
+        "Student Management System"
+    ]
+
+    for project in projects:
+        print(project)
+
+display_projects()</code></pre>
+            </article>
+        </section>
+
+        <section id="skills" class="section section-animate">
+            <div class="section-heading">
+                <p class="eyebrow">TECHNICAL ABILITIES</p>
+                <h2>Skills</h2>
+                <h3>Technical Skillset</h3>
+            </div>
+
+            <div class="cards four-columns">
+                <article class="card skill-card">
+                    <h4>Languages</h4>
+                    <h5>Python</h5>
+                    <p>Programming, automation, and data processing.</p>
+                    <h5>SQL</h5>
+                    <p>Queries, filtering, joins, and database operations.</p>
+                </article>
+
+                <article class="card skill-card">
+                    <h4>Web Stack</h4>
+                    <h5>HTML & CSS</h5>
+                    <p>Responsive layouts and user interface design.</p>
+                    <h5>React & Node.js</h5>
+                    <p>Frontend components and backend development basics.</p>
+                </article>
+
+                <article class="card skill-card">
+                    <h4>Data Analytics</h4>
+                    <h5>Pandas & NumPy</h5>
+                    <p>Data cleaning, transformation, and analysis.</p>
+                    <h5>Matplotlib</h5>
+                    <p>Charts and visual data presentation.</p>
+                </article>
+
+                <article class="card skill-card">
+                    <h4>Databases & DevOps</h4>
+                    <h5>MongoDB & MySQL</h5>
+                    <p>NoSQL and relational database concepts.</p>
+                    <h5>Git, Docker & AWS</h5>
+                    <p>Version control, containers, and cloud basics.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-animate">
+            <div class="section-heading">
+                <p class="eyebrow">LET'S CONNECT</p>
+                <h2>Contact</h2>
+                <h3>Get In Touch</h3>
+            </div>
+
+            <div class="cards five-columns">
+                <article class="card contact-card">
+                    <h4>Email</h4>
+                    <p><a href="mailto:subavarshini17@gmail.com">subavarshini17@gmail.com</a></p>
+                </article>
+
+                <article class="card contact-card">
+                    <h4>Phone</h4>
+                    <p><a href="tel:+916381234567">+91 6381 234 567</a></p>
+                </article>
+
+                <article class="card contact-card">
+                    <h4>Location</h4>
+                    <p>Coimbatore, India</p>
+                </article>
+
+                <article class="card contact-card">
+                    <h4>LinkedIn</h4>
+                    <p><a href="https://linkedin.com/in/subavarshini-l" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
+                </article>
+
+                <article class="card contact-card">
+                    <h4>GitHub</h4>
+                    <p><a href="https://github.com/subavarshini-l" target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <h6>© 2026 Subavarshini L | Built with HTML, CSS and JavaScript</h6>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const navLinks = document.getElementById("navLinks");
+
+        menuButton.addEventListener("click", function () {
+            navLinks.classList.toggle("show");
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("show");
+            });
+        });
+
+        const sections = document.querySelectorAll(".section-animate");
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, {
+            threshold: 0.12
+        });
+
+        sections.forEach(function (section) {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
