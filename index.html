@@ -3,13 +3,651 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Subavarshini L portfolio - Full Stack Developer and Data Analyst">
+    <meta name="description" content="Subavarshini L portfolio">
     <title>Subavarshini L | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: #1e293b;
+            background:
+                radial-gradient(circle at top left, rgba(224, 231, 255, 0.9), transparent 35%),
+                radial-gradient(circle at top right, rgba(243, 232, 255, 0.9), transparent 35%),
+                radial-gradient(circle at bottom left, rgba(219, 234, 254, 0.8), transparent 35%),
+                #f8f7ff;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.74);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .navbar {
+            width: min(1200px, 92%);
+            min-height: 70px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            color: white;
+            background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+            font-weight: 800;
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #475569;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        .menu-button {
+            display: none;
+            background: transparent;
+            border: 0;
+            color: #334155;
+            cursor: pointer;
+            font-size: 22px;
+        }
+
+        .hero,
+        .section {
+            width: min(1200px, 92%);
+            margin: auto;
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding: 110px 0 70px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 12px;
+            border: 1px solid #c7d2fe;
+            border-radius: 999px;
+            background: #eef2ff;
+            color: #4338ca;
+            font: 600 11px "Fira Code", monospace;
+            letter-spacing: 0.06em;
+        }
+
+        .hero h1 {
+            margin-top: 18px;
+            color: #0f172a;
+            font-size: clamp(48px, 7vw, 88px);
+            line-height: 0.95;
+            font-weight: 800;
+        }
+
+        .hero h2 {
+            margin-top: 18px;
+            color: #475569;
+            font-size: clamp(22px, 3vw, 34px);
+            font-weight: 700;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            margin-top: 22px;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .button {
+            padding: 14px 22px;
+            border-radius: 13px;
+            font-size: 14px;
+            font-weight: 800;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-5px);
+        }
+
+        .primary {
+            color: white;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.2);
+        }
+
+        .secondary {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+
+        .image-box {
+            padding: 12px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.46);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 55px rgba(79, 70, 229, 0.1);
+        }
+
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 23px;
+            animation: floatImage 4s ease-in-out infinite;
+        }
+
+        .section {
+            padding: 85px 0;
+            scroll-margin-top: 90px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 34px;
+        }
+
+        .section-heading h2 {
+            margin-top: 14px;
+            color: #0f172a;
+            font-size: clamp(30px, 4vw, 42px);
+            font-weight: 800;
+        }
+
+        .section-heading h3 {
+            margin-top: 8px;
+            color: #64748b;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .about-image {
+            width: 100%;
+            min-height: 450px;
+            object-fit: cover;
+            border-radius: 28px;
+            box-shadow: 0 22px 45px rgba(79, 70, 229, 0.12);
+        }
+
+        .about-content {
+            display: grid;
+            gap: 18px;
+        }
+
+        .cards {
+            display: grid;
+            gap: 20px;
+        }
+
+        .three-columns {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .four-columns {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .five-columns {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .card {
+            padding: 25px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 40px rgba(51, 65, 85, 0.07);
+            transition: transform 0.35s, box-shadow 0.35s;
+        }
+
+        .card:hover {
+            transform: translateY(-9px);
+            box-shadow: 0 24px 45px rgba(79, 70, 229, 0.13);
+        }
+
+        .card h4 {
+            color: #0f172a;
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .card h5 {
+            margin-top: 15px;
+            color: #6366f1;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .card h6 {
+            margin-top: 5px;
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .card p {
+            margin-top: 10px;
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        .workflow-card:nth-child(1) {
+            background: rgba(238, 242, 255, 0.78);
+        }
+
+        .workflow-card:nth-child(2) {
+            background: rgba(250, 245, 255, 0.78);
+        }
+
+        .workflow-card:nth-child(3) {
+            background: rgba(236, 253, 245, 0.78);
+        }
+
+        .workflow-card:nth-child(4) {
+            background: rgba(255, 247, 237, 0.78);
+        }
+
+        .step-number {
+            display: block;
+            margin-bottom: 15px;
+            color: #6366f1;
+            font: 800 28px "Fira Code", monospace;
+        }
+
+        .education-image,
+        .skills-image,
+        .contact-image {
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: 0 22px 50px rgba(51, 65, 85, 0.12);
+        }
+
+        .education-image {
+            height: 360px;
+            object-fit: cover;
+            margin-bottom: 22px;
+        }
+
+        .skills-layout,
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .skills-image,
+        .contact-image {
+            height: 100%;
+            min-height: 420px;
+            object-fit: cover;
+        }
+
+        .project-card:nth-child(1) {
+            background: rgba(255, 241, 242, 0.8);
+        }
+
+        .project-card:nth-child(2) {
+            background: rgba(236, 253, 245, 0.8);
+        }
+
+        .project-card:nth-child(3) {
+            background: rgba(255, 247, 237, 0.8);
+        }
+
+        .project-label {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #eef2ff;
+            color: #4338ca;
+            font: 600 10px "Fira Code", monospace;
+        }
+
+        .tech-text {
+            color: #4338ca !important;
+            font: 600 11px/1.7 "Fira Code", monospace;
+        }
+
+        .code-card {
+            margin-top: 24px;
+            overflow: hidden;
+            border-radius: 22px;
+            background: #111827;
+            color: #e2e8f0;
+            box-shadow: 0 25px 45px rgba(15, 23, 42, 0.25);
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 18px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .code-header h4 {
+            color: #a5b4fc;
+            font: 700 13px "Fira Code", monospace;
+        }
+
+        .code-header span {
+            color: #6ee7b7;
+            font: 500 11px "Fira Code", monospace;
+        }
+
+        .code-card pre {
+            margin: 0;
+            padding: 22px;
+            overflow-x: auto;
+            font: 400 12px/1.8 "Fira Code", monospace;
+        }
+
+        .skill-card:nth-child(1) {
+            background: rgba(238, 242, 255, 0.75);
+        }
+
+        .skill-card:nth-child(2) {
+            background: rgba(250, 245, 255, 0.75);
+        }
+
+        .skill-card:nth-child(3) {
+            background: rgba(255, 247, 237, 0.75);
+        }
+
+        .skill-card:nth-child(4) {
+            background: rgba(236, 253, 245, 0.75);
+        }
+
+        .contact-card:nth-child(1) {
+            background: rgba(250, 245, 255, 0.82);
+        }
+
+        .contact-card:nth-child(2) {
+            background: rgba(239, 246, 255, 0.82);
+        }
+
+        .contact-card:nth-child(3) {
+            background: rgba(236, 253, 245, 0.82);
+        }
+
+        .contact-card:nth-child(4) {
+            background: rgba(255, 247, 237, 0.82);
+        }
+
+        .contact-card:nth-child(5) {
+            background: rgba(255, 241, 242, 0.82);
+        }
+
+        .contact-card a {
+            color: #4f46e5;
+            font-weight: 700;
+        }
+
+        .footer {
+            margin-top: 35px;
+            padding: 30px 20px;
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        .footer h6 {
+            font: 500 11px "Fira Code", monospace;
+        }
+
+        .section-animate {
+            opacity: 0;
+            transform: translateY(45px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .visible .card {
+            animation: popCard 0.7s ease forwards;
+        }
+
+        .visible .card:nth-child(2) {
+            animation-delay: 0.12s;
+        }
+
+        .visible .card:nth-child(3) {
+            animation-delay: 0.24s;
+        }
+
+        .visible .card:nth-child(4) {
+            animation-delay: 0.36s;
+        }
+
+        .visible .card:nth-child(5) {
+            animation-delay: 0.48s;
+        }
+
+        @keyframes popCard {
+            0% {
+                opacity: 0;
+                transform: translateY(35px) scale(0.94);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateY(-6px) scale(1.02);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes floatImage {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-9px);
+            }
+        }
+
+        @media (max-width: 1050px) {
+            .four-columns {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .five-columns {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .three-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .about-layout,
+            .skills-layout,
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 350px;
+            }
+
+            .skills-image,
+            .contact-image {
+                min-height: 340px;
+                max-height: 500px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 4%;
+                right: 4%;
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 15px;
+                border-radius: 18px;
+                background: rgba(255, 255, 255, 0.96);
+                box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                width: 100%;
+                padding: 10px 8px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 110px;
+                gap: 35px;
+            }
+
+            .hero-image-area {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero,
+            .section {
+                width: 94%;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .four-columns,
+            .five-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .education-image {
+                height: 240px;
+            }
+
+            .about-image {
+                min-height: 280px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -38,53 +676,68 @@
             <div class="hero-text">
                 <p class="eyebrow">FULL STACK DEVELOPER</p>
                 <h1>Subavarshini L</h1>
-                <h2>Full Stack Developer & Data Analyst</h2>
+                <h2>Full Stack Developer &amp; Data Analyst</h2>
                 <p class="hero-description">
                     I build responsive web applications and turn ideas into real-world solutions.
-                    I enjoy coding, problem solving, data analysis, and continuous learning.
+                    Passionate about coding, problem solving, data analysis, and continuous learning.
                 </p>
+
                 <div class="hero-buttons">
                     <a href="#projects" class="button primary">View My Projects</a>
                     <a href="#contact" class="button secondary">Contact Me</a>
                 </div>
             </div>
 
-            <div class="hero-image">
-                <img src="ChatGPT Image Sep 22, 2026, 08_56_39 PM.png" alt="Portfolio illustration for Subavarshini L">
+            <div class="hero-image-area">
+                <div class="image-box">
+                    <img
+                        class="hero-image"
+                        src="https://raw.githubusercontent.com/subavarshini1703-blip/neww/main/assets/images/img1.png.png"
+                        alt="About portfolio image">
+                </div>
             </div>
         </section>
 
-        <section id="about" class="section about-section section-animate">
+        <section id="about" class="section section-animate">
             <div class="section-heading">
                 <p class="eyebrow">ABOUT ME</p>
                 <h2>About</h2>
-                <h3>Building with code, data, and creativity</h3>
+                <h3>Full Stack Development and Data Analytics</h3>
             </div>
 
-            <div class="about-grid">
-                <article class="card">
-                    <h4>Profile</h4>
-                    <p>
-                        I am a B.Sc Computer Science with Data Analytics student interested in
-                        full stack development and data-driven applications.
-                    </p>
-                </article>
+            <div class="about-layout">
+                <img
+                    class="about-image"
+                    src="https://raw.githubusercontent.com/subavarshini1703-blip/neww/main/assets/images/img1.png.png"
+                    alt="Subavarshini L portfolio illustration">
 
-                <article class="card">
-                    <h4>Developer Mindset</h4>
-                    <p>
-                        I focus on clean code, practical problem solving, responsive interfaces,
-                        database concepts, and continuous improvement.
-                    </p>
-                </article>
+                <div class="about-content">
+                    <article class="card">
+                        <h4>Profile</h4>
+                        <p>
+                            I am a B.Sc Computer Science with Data Analytics student interested in
+                            full stack development and data-driven applications.
+                        </p>
+                    </article>
 
-                <article class="card">
-                    <h4>Core Values</h4>
-                    <p>
-                        Clean Code, Creative Solutions, Continuous Learning, and a structured
-                        approach to development.
-                    </p>
-                </article>
+                    <article class="card">
+                        <h4>Developer Mindset</h4>
+                        <p>
+                            I focus on clean code, practical problem solving, responsive interfaces,
+                            database concepts, and continuous improvement.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h4>Core Values</h4>
+                        <p>
+                            Clean Code, Creative Solutions, and Continuous Learning.
+                        </p>
+                    </article>
+
+                    <h5>My Focus</h5>
+                    <h6>Web Development • Data Analytics • Problem Solving</h6>
+                </div>
             </div>
         </section>
 
@@ -92,13 +745,13 @@
             <div class="section-heading">
                 <p class="eyebrow">ENGINEERING MINDSET</p>
                 <h2>Workflow</h2>
-                <h3>How I build and solve problems</h3>
+                <h3>How I Build and Solve Problems</h3>
             </div>
 
             <div class="cards four-columns">
                 <article class="card workflow-card">
                     <span class="step-number">01</span>
-                    <h4>Plan & Architect</h4>
+                    <h4>Plan &amp; Architect</h4>
                     <p>Understand requirements, user flow, system structure, and database needs.</p>
                 </article>
 
@@ -110,13 +763,13 @@
 
                 <article class="card workflow-card">
                     <span class="step-number">03</span>
-                    <h4>Data & Logic Integration</h4>
+                    <h4>Data &amp; Logic Integration</h4>
                     <p>Connect interfaces with databases, APIs, and application logic.</p>
                 </article>
 
                 <article class="card workflow-card">
                     <span class="step-number">04</span>
-                    <h4>Iterate & Improve</h4>
+                    <h4>Iterate &amp; Improve</h4>
                     <p>Test, refine, optimize, and improve the overall user experience.</p>
                 </article>
             </div>
@@ -129,32 +782,31 @@
                 <h3>Education Journey</h3>
             </div>
 
-            <div class="education-banner">
-                <img src="image_23894d.jpg" alt="College campus">
-                <div class="education-overlay">
-                    <h4>PSG College of Arts and Science</h4>
-                    <p>B.Sc Computer Science with Data Analytics</p>
-                    <span>2024 - 2027</span>
-                </div>
-            </div>
+            <img
+                class="education-image"
+                src="https://raw.githubusercontent.com/subavarshini1703-blip/neww/main/assets/images/02_education_background.jpg"
+                alt="Education background">
 
             <div class="cards three-columns">
-                <article class="card education-card">
-                    <h4>B.Sc CS (Data Analytics)</h4>
+                <article class="card">
+                    <h4>B.Sc Computer Science with Data Analytics</h4>
                     <h5>PSG College of Arts and Science</h5>
                     <p>2024 - 2027</p>
+                    <h6>Data Analytics and Computer Science</h6>
                 </article>
 
-                <article class="card education-card">
+                <article class="card">
                     <h4>Higher Secondary School</h4>
                     <h5>Vikas Vidhyalaya HSS</h5>
                     <p>HSC - 80%</p>
+                    <h6>Higher Secondary Education</h6>
                 </article>
 
-                <article class="card education-card">
+                <article class="card">
                     <h4>Secondary School</h4>
                     <h5>Kannammal National School</h5>
                     <p>SSLC - 90%</p>
+                    <h6>Secondary Education</h6>
                 </article>
             </div>
         </section>
@@ -168,7 +820,7 @@
 
             <div class="cards three-columns">
                 <article class="card project-card">
-                    <span class="project-label">Project 01</span>
+                    <span class="project-label">PROJECT 01</span>
                     <h4>Data Analysis Project</h4>
                     <p>
                         Analyzed datasets and created visual representations using Python,
@@ -179,7 +831,7 @@
                 </article>
 
                 <article class="card project-card">
-                    <span class="project-label">Project 02</span>
+                    <span class="project-label">PROJECT 02</span>
                     <h4>Portfolio Website</h4>
                     <p>
                         Designed a responsive portfolio website to present projects,
@@ -190,7 +842,7 @@
                 </article>
 
                 <article class="card project-card">
-                    <span class="project-label">Project 03</span>
+                    <span class="project-label">PROJECT 03</span>
                     <h4>Student Management System</h4>
                     <p>
                         Created a system for organizing student information using
@@ -227,38 +879,45 @@ display_projects()</code></pre>
                 <h3>Technical Skillset</h3>
             </div>
 
-            <div class="cards four-columns">
-                <article class="card skill-card">
-                    <h4>Languages</h4>
-                    <h5>Python</h5>
-                    <p>Programming, automation, and data processing.</p>
-                    <h5>SQL</h5>
-                    <p>Queries, filtering, joins, and database operations.</p>
-                </article>
+            <div class="skills-layout">
+                <img
+                    class="skills-image"
+                    src="https://raw.githubusercontent.com/subavarshini1703-blip/neww/main/assets/images/image_no_text.png"
+                    alt="Skills and technology illustration">
 
-                <article class="card skill-card">
-                    <h4>Web Stack</h4>
-                    <h5>HTML & CSS</h5>
-                    <p>Responsive layouts and user interface design.</p>
-                    <h5>React & Node.js</h5>
-                    <p>Frontend components and backend development basics.</p>
-                </article>
+                <div class="cards four-columns">
+                    <article class="card skill-card">
+                        <h4>Languages</h4>
+                        <h5>Python</h5>
+                        <p>Programming, automation, and data processing.</p>
+                        <h5>SQL</h5>
+                        <p>Queries, filtering, joins, and database operations.</p>
+                    </article>
 
-                <article class="card skill-card">
-                    <h4>Data Analytics</h4>
-                    <h5>Pandas & NumPy</h5>
-                    <p>Data cleaning, transformation, and analysis.</p>
-                    <h5>Matplotlib</h5>
-                    <p>Charts and visual data presentation.</p>
-                </article>
+                    <article class="card skill-card">
+                        <h4>Web Stack</h4>
+                        <h5>HTML &amp; CSS</h5>
+                        <p>Responsive layouts and user interface design.</p>
+                        <h5>React &amp; Node.js</h5>
+                        <p>Frontend components and backend development basics.</p>
+                    </article>
 
-                <article class="card skill-card">
-                    <h4>Databases & DevOps</h4>
-                    <h5>MongoDB & MySQL</h5>
-                    <p>NoSQL and relational database concepts.</p>
-                    <h5>Git, Docker & AWS</h5>
-                    <p>Version control, containers, and cloud basics.</p>
-                </article>
+                    <article class="card skill-card">
+                        <h4>Data Analytics</h4>
+                        <h5>Pandas &amp; NumPy</h5>
+                        <p>Data cleaning, transformation, and analysis.</p>
+                        <h5>Matplotlib</h5>
+                        <p>Charts and visual data presentation.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h4>Databases &amp; DevOps</h4>
+                        <h5>MongoDB &amp; MySQL</h5>
+                        <p>NoSQL and relational database concepts.</p>
+                        <h5>Git, Docker &amp; AWS</h5>
+                        <p>Version control, containers, and cloud basics.</p>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -269,31 +928,43 @@ display_projects()</code></pre>
                 <h3>Get In Touch</h3>
             </div>
 
-            <div class="cards five-columns">
-                <article class="card contact-card">
-                    <h4>Email</h4>
-                    <p><a href="mailto:subavarshini17@gmail.com">subavarshini17@gmail.com</a></p>
-                </article>
+            <div class="contact-layout">
+                <img
+                    class="contact-image"
+                    src="https://raw.githubusercontent.com/subavarshini1703-blip/neww/main/assets/images/contact_no_text.png"
+                    alt="Contact illustration">
 
-                <article class="card contact-card">
-                    <h4>Phone</h4>
-                    <p><a href="tel:+916381234567">+91 6381 234 567</a></p>
-                </article>
+                <div class="cards five-columns">
+                    <article class="card contact-card">
+                        <h4>Email</h4>
+                        <p><a href="mailto:subavarshini17@gmail.com">subavarshini17@gmail.com</a></p>
+                        <h6>Send an email</h6>
+                    </article>
 
-                <article class="card contact-card">
-                    <h4>Location</h4>
-                    <p>Coimbatore, India</p>
-                </article>
+                    <article class="card contact-card">
+                        <h4>Phone</h4>
+                        <p><a href="tel:+916381234567">+91 6381 234 567</a></p>
+                        <h6>Contact number</h6>
+                    </article>
 
-                <article class="card contact-card">
-                    <h4>LinkedIn</h4>
-                    <p><a href="https://linkedin.com/in/subavarshini-l" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
-                </article>
+                    <article class="card contact-card">
+                        <h4>Location</h4>
+                        <p>Coimbatore, India</p>
+                        <h6>India</h6>
+                    </article>
 
-                <article class="card contact-card">
-                    <h4>GitHub</h4>
-                    <p><a href="https://github.com/subavarshini-l" target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
-                </article>
+                    <article class="card contact-card">
+                        <h4>LinkedIn</h4>
+                        <p><a href="https://linkedin.com/in/subavarshini-l" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
+                        <h6>Professional profile</h6>
+                    </article>
+
+                    <article class="card contact-card">
+                        <h4>GitHub</h4>
+                        <p><a href="https://github.com/subavarshini-l" target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
+                        <h6>Projects and code</h6>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
